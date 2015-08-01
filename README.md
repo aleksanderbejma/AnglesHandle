@@ -7,7 +7,7 @@ GitHub Clone URL: https://github.com/aleksanderbejma/AnglesHandle.git
 
 IMPORTANT:
 The App need the GitHub Access Token which allow You to send more than 60 requests per our and authorize them.
-Without it the App wouldn't be work. I get the Access Token from the database lokalize on my own server. You can import the database (DataBaseCopy.sql.gz file) and config Your connection in the file App/helpers/gitAccessToken.php or define Your own fixed Access Token ($scope.gitAccessToken variable) in the init function of App file: App/GitHubApp.js
+Without it the App wouldn't be work. I get the Access Token from the database lokalize on my own server. You can import the database (DataBaseCopy.sql.gz file) and config Your connection in the file App/helpers/gitAccessToken.php or define Your own fixed Access Token (yourAccessToken variable) in the init function of App file: App/GitHubApp.js
 
 curiosity:
 If You generate Your API Access Token and define it in string variable in the code, it will be automaticly remove after send Your code on GitHub.
