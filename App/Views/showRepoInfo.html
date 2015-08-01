@@ -15,7 +15,7 @@
 </div>
 <div class="col-xs-7">
     <!-- Show Repository Contributors. -->	
-    <h4>Repository Contributors:</h4>						
+    <h4 ng-show="repoInfo.lenght > 0">Repository Contributors:</h4>						
     <div class="col-10p" dir-paginate="repoContributor in repoContributors | itemsPerPage: 30" pagination-id="repos">
         <span class="avatar"  ng-mouseover="avatarHovered = true" ng-mouseleave="avatarHovered = false" ng-click="showUserInfo(repoContributor.login)">
             <img class="img-responsive" ng-src="{{repoContributor.avatar_url}}" alt="avatar of {{repoContributor.login}}" />       			

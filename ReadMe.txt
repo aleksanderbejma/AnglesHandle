@@ -4,6 +4,14 @@ On this WebSite You find GitHub Angular repositories Contributors.
 Live WebSite is working on: http://github.abresolutions.com/
 GitHub Clone Code: https://github.com/aleksanderbejma/AnglesHandle.git
 
+IMPORTANT:
+The App need the GitHub Access Token which allow You to send more than 60 requests per our and authorize them.
+Without it the App wouldn't be work. I get the Access Token from the database lokalize on my own server. You can import the database (DataBaseCopy.sql.gz file) and config Your connection in the file App/helpers/gitAccessToken.php or define Your own fixed Access Token ($scope.gitAccessToken variable) in the init function of App file: App/GitHubApp.js
+
+curiosity:
+If You generate Your API Access Token and define it in string variable in the code, it will be automaticly remove after send Your code on GitHub.
+GitHub check all files and match it with generated Access Tokens, and when it find any, it will remove it in the GitHub Accounts settings for safety resons.
+
 
 Posible Actions:
 1. View All Angular Unique Contributors.

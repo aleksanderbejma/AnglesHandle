@@ -54,10 +54,16 @@ function GitHubDataController($scope, $http, $element){
     };
 	
 	init = function() {
+		<!-- We need the Access Token to authorize GitHub API requests. The variable is geted from the database, but You can define it by Yourself. You will find more info in IMPORTANT.txt -->
+		
 		$http.get("/App/helpers/gitAccessToken.php")
 		.success(function (data) {
-			$scope.gitAccessToken = data;
-		
+			var yourAccessToken = ''; //Here You can define Your Access Token			
+			if(yourAccessToken!=''){
+				$scope.gitAccessToken = yourAccessToken;	
+			}else{
+				$scope.gitAccessToken = data;
+			}
 			<!-- Start with getting info about Angular Organization -->
 			$http.get("https://api.github.com/orgs/angular?access_token="+$scope.gitAccessToken, {headers: {'Content-type': 'application/json'}})
 			.success(function (data) {
@@ -67,7 +73,7 @@ function GitHubDataController($scope, $http, $element){
 				loadRepos(repos_url);
 			});
 		});
-	} 
+	}
 	
 	<!-- Init data loading -->
 	init();          		
