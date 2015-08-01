@@ -1,4 +1,5 @@
 <?
+	//Define Your own database settings
 	$host = 'elite-korn.home.pl';
 	$database = '08628551_anghand';
 	$user = '08628551_anghand';
@@ -11,7 +12,8 @@
 	} catch (Exception $e) {
 		$link = null;
 	}
-		
+	
+	//Get Acess Token from database
 	$sql = 'SELECT * FROM authentication LIMIT 1';
 	$result = mysql_query($sql);
 	$i = 0;

@@ -151,6 +151,7 @@ function GitHubDataController($scope, $http, $element){
 			$http.get(contributors_url+'?per_page=100&access_token='+$scope.gitAccessToken, {headers: {'Content-type': 'application/json'}})
 			.success(function (data) {  
 				$scope.repoContributors = data;
+				$scope.repoContributorsGeted = true;
 				$scope.prevView = $scope.activeView;
 				$scope.activeView = 'showRepoInfo';
 				$scope.subpageView = false;
