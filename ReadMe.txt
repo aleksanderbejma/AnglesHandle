@@ -2,6 +2,8 @@ Angles Handle is One Page Project made by Aleksander Bejma, AbreSolutions compan
 On this WebSite You find GitHub Angular repositories Contributors.
 
 Live WebSite is working on: http://github.abresolutions.com/
+GitHub Clone Code: https://github.com/aleksanderbejma/AnglesHandle.git
+
 
 Posible Actions:
 1. View All Angular Unique Contributors.
