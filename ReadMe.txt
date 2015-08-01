@@ -15,7 +15,7 @@ Posible Actions:
 2. View each Angular Contributor details with his repositories.
 3. View each repositories details with its contributors.
 4. View all Angular repositories.
-5. View Angular Organization inforimation.
+5. View Angular Organization information.
 6. View Contact and About SubPage.
 
 Things that still need (by ran out of time):
@@ -34,7 +34,7 @@ Things to improve:
 Summary:
 1. Project is based on JavaScript with Angular library. Template is based on Bootstrap and my own clear HTML and CSS.
 2. The idea for the layout is mine (OK, my Girlfriend too).
-3. In project I used 2 external modules: for pagination and for loader while requests are loading. I changed in them styles and in loader module I added one variable witch I use.
+3. In project I used 2 external modules: for pagination and for loader while requests are loading. I changed in them styles and in loader module I added one variable.
 
 
 
