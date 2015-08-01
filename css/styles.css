@@ -211,7 +211,7 @@ div.showDetails{
     border-color: #5B5F8D;
 }
 .navbar-inverse .navbar-nav .open .dropdown-menu>li>a{
-	color:#FFF;
+	color:#000;
 }
 .pagination>li>a, .pagination>li>span{
 	color:#5B5F8D;
