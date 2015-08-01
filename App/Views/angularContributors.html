@@ -1,0 +1,58 @@
+<!-- Start Filters. -->
+<div class="col-xs-4">
+    <label for="search">Search:</label>
+    <input ng-model="searchText.login" id="search" class="form-control" placeholder="Enter login" />
+</div>
+<div class="col-xs-4">
+    <label for="number">Users per page:</label>
+    <input type="number" min="10" max="100" class="form-control" ng-model="pageSize" placeholder="Enter the number (max. 100)" />
+</div>
+<div class="col-xs-4">
+    <label for="sort">Order by:</label>
+    <select ng-model="predicate" class="form-control filter">
+        <option value="angularContributions" class="aContributors">Number of Angular Contributions</option>
+        <option value="public_repos" class="pRepos">Number of public Repos</option>
+        <option value="public_gists" class="pGists">Number of public Gists</option>
+        <option value="followers" class="followers">Number of Followers</option>
+    </select>
+</div>
+<div class="col-xs-12 legend">
+	<span class="aContributors" ng-show="predicate == 'angularContributions'">1 - Angular Contributions</span> 
+	<span class="pRepos" ng-show="predicate == 'public_repos'">1 - Public Repos</span>  
+	<span class="followers" ng-show="predicate == 'followers'">1 - Number of Followers</span>
+	<span class="pGists" ng-show="predicate == 'public_gists'">1 - Public Gists</span>
+</div>
+ <!-- End Filter. --> 
+<!-- All Angular Contributors Grid -->
+<div class="allUsers">
+	<!-- Repeat All Angular Contributors -->						
+	<div class="col-10p" dir-paginate="contributor in uniqueContributors | filter:searchText:strict | orderBy:predicate:reverse | itemsPerPage: pageSize" pagination-id="users" current-page="currentPage">
+		<span class="avatar"  ng-mouseover="avatarHovered = true" ng-mouseleave="avatarHovered = false" ng-click="showUserInfo(contributor.login)">
+	        <img class="img-responsive" ng-src="{{contributor.avatar_url}}" alt="avatar of {{contributor.login}}" />       			
+	         <div class="name" ng-show="avatarHovered">
+	            <span ng-show="contributor.name">{{contributor.name}}</span>
+	            <span ng-hide="contributor.name">{{contributor.login}}</span>
+	        </div> 
+	        <div class="addedInfo aContributors" ng-show="predicate == 'angularContributions'">
+	            <span>{{contributor.angularContributions}}</span>
+	        </div>  
+	        <div class="addedInfo pRepos" ng-show="predicate == 'public_repos'"> 
+	            <span>{{contributor.public_repos}}</span>
+	        </div>      
+	        <div class="addedInfo followers" ng-show="predicate == 'followers'"> 
+	            <span>{{contributor.followers}}</span>
+	        </div>    
+	        <div class="addedInfo pGists" ng-show="predicate == 'public_gists'"> 
+	            <span>{{contributor.public_gists}}</span>
+	        </div> 
+		</span>
+	</div>
+	<!-- Start Pagination For All Angular Contributors -->
+	<div ng-controller="PaginationController" ng-show="requestsDone">
+	    <div class="text-center">
+	        <dir-pagination-controls pagination-id="users" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/App/helperViews/dirPagination.tpl.html"></dir-pagination-controls>
+	    </div>
+	</div>
+	<!-- End Pagination For All Angular Contributors -->
+</div>
+<!-- End All Angular Contributors Grid --> 

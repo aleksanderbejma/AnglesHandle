@@ -1,0 +1,21 @@
+<div class="buttons col-xs-12">
+    <button ng-click="setView(prevView)" class="btn btn-lg btn-danger">Back</button>
+</div>
+<div class="col-xs-12">
+    <div class="left col-xs-4">
+        <img src="/images/angular-logo-big.png" alt="angular organization logo" class="img-responsive" />
+    </div>
+    <!-- Show Angular Organization Info. -->
+    <div class="right col-xs-8">
+        <h3>Angular</h3>                    
+        <p ng-show="angularOrganizationInfo.created_at"><b>Created at:</b> {{angularOrganizationInfo.created_at}}</p>
+        <p ng-show="angularOrganizationInfo.updated_at"><b>Updated at:</b> {{angularOrganizationInfo.updated_at}}</p>
+        <p ng-show="angularOrganizationInfo.location"><b>Location:</b> {{angularOrganizationInfo.location}}</p>
+        <p ng-show="angularOrganizationInfo.company"><b>Company:</b> {{angularOrganizationInfo.company}}</p>
+        <p ng-show="angularOrganizationInfo.html_url"><a ng-href="{{angularOrganizationInfo.html_url}}" target="_blank">Go to the User GitHub Page</a></p>
+        <p ng-show="angularOrganizationInfo.blog"><a ng-href="{{angularOrganizationInfo.blog}}" target="_blank">Go to the Blog</a></p>
+        <p ng-show="angularOrganizationInfo.email"><a ng-href="{{angularOrganizationInfo.email}}" target="_blank">Write an e-mail</a></p>	
+        <p><a ng-click="showAngularRepositories();">Show Repositories</a></p>
+        <p><a ng-click="hideAll = false; showDetails = false; showRepos = false; showAngularRepos = false;  angularInfo = false">Show Angular Contributors</a></p>		
+    </div>										
+</div>

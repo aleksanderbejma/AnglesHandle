@@ -1,0 +1,349 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	color: #000;
+}
+h1, h2, h3, h4{
+	margin-top:0px;
+}
+h1{
+	2.1em;
+}
+h2{
+	1.8em;
+}
+h3{
+	1.5em;
+}
+a{
+	color: #3c763d;
+	font-weight:bold;
+}
+a:hover{
+	color:#8a6d3b;
+	cursor:pointer;
+	text-decoration:none;
+}
+section{
+}
+section header{
+	margin-bottom: 25px;
+	padding-bottom: 5px;
+	border-bottom:1px solid #5cb85c;
+	width:100%;
+	float:left;
+	padding-bottom:25px;
+}
+footer{
+	position: fixed;
+	z-index:99;
+	bottom: 0px;
+	width:100%;
+	background-color: #FDE9D8;
+	max-height: 50px;
+	border-top: 2px solid #FFB15E;
+}
+footer .container{
+	padding-top: 10px;
+}
+footer .copyrights{
+	text-align: center;
+	color:#000;
+}
+.navbar-inverse{
+	background-image: linear-gradient(to bottom,#FFB15E 0,#C97849 100%);
+}
+.navbar-inverse .navbar-brand{
+	color:#000;
+}
+.navbar-inverse .navbar-nav>li>a{
+	color:#000;
+}
+#loader{
+	width:100%; text-align: center; margin-top: 50px;
+}
+.hidden{
+	display: none;
+}
+.shown{
+	display: block;
+}
+span.green{
+	color:#5cb85c;
+}
+span.red{
+	color:#B63032;
+}
+div.page{
+	padding-top:75px;
+	float:left;
+	width:100%;
+}
+.col-10p{
+	width:10%;
+	float: left;
+	border:1px solid #FFF;
+}
+#loader span.label{
+	font-size:1.4em;
+	font-weight:bold;
+	padding: 10px;
+}
+h1 a:hover{text-decoration: none;}
+select.filter{
+	color: #777;
+}
+select.filter option{
+	font-weight: bold;
+}
+.filter option.aContributors{
+	color:#B63032;
+}
+.filter option.followers{
+	color:#337ab7;
+}
+.filter option.pGists{
+	color:#5cb85c;
+}
+.filter option.pRepos{
+	color:#000;
+}
+.legend span{
+	display: block;
+	padding: 6px;
+	font-weight:bold;
+	float:right;
+	margin:6px 0px;
+	border-radius:5px;
+	font-size:10px;
+}
+.legend p{
+	width:100%;
+	float: right;
+	margin:0px;
+}
+span.aContributors{
+	background-color: #B63032;
+	color: #FFF;
+}
+span.followers{
+	background-color:#337ab7;
+	color: #FFF;
+}
+span.pGists{
+	background-color:#5cb85c;
+	color: #FFF;
+}
+span.pRepos{
+	background-color:#000;
+	color: #FFF;
+}
+.avatar{
+	float: left;
+	position: relative;
+	text-align: center;
+	max-height: 95px;
+	overflow:hidden;
+	width:100%;
+}
+.avatar img{
+	margin:0 auto;
+}
+.avatar:hover{
+	cursor: pointer;
+}
+.avatar:hover img{
+	opacity:0.3;	
+}
+.col-10p .name {
+	position: absolute;
+	z-index: 9;
+	left: 0px;
+	top: 35%;
+	text-align: center;
+	vertical-align: middle;
+	color:#000;
+	font-weight:bold;
+	width:100%;
+}
+.col-10p .name span{
+	padding-top:15px;
+	color:#000;
+}
+.col-10p .addedInfo {
+	position: absolute;
+	z-index: 9;
+	left: 10%;
+	bottom: 10%;
+	text-align: center;
+	color:#000;
+	font-weight:bold;
+	min-width:25px;
+	padding: 3px;
+	opacity:0.7;
+}
+.col-10p .addedInfo span{
+	vertical-align: middle;
+	line-height: 15px;
+	display: block;
+	color: #FFF;
+	font-size: 1em;
+}
+.col-10p .addedInfo.aContributors{
+	background-color:#B63032; 
+}
+.col-10p .addedInfo.pRepos{
+	background-color:#000; 
+}
+.col-10p .addedInfo.pGists{
+	background-color:#5cb85c; 
+}
+.col-10p .addedInfo.followers{
+	background-color:#337ab7; 
+}
+div.showDetails{
+	width:100%;
+	left: 0px;
+	padding-bottom: 75px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+	background-color: #5B5F8D;
+    border-color: #5B5F8D;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu>li>a{
+	color:#FFF;
+}
+.pagination>li>a, .pagination>li>span{
+	color:#5B5F8D;
+}
+.mainPage{
+	float:left;
+	width:100%;
+}
+.subPage{
+	float:left;
+	width:100%;
+}
+.content{
+	float:left;
+	width:100%;
+}
+.dir-pages{
+	float:left;
+	width:100%;
+}
+div.allUsers{
+	float:left;
+	width:100%;
+	margin:25px 0px;
+}
+div.buttons{
+	float:left;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	border-bottom: 1px solid #CCCCCC;
+}
+button.repoInfo{
+	margin: 5px 5px 0px 0px;
+	
+}
+div.bottom{
+	float:left;
+	width:100%;
+	margin-top:25px;
+	padding-top:25px;
+	padding-bottom:75px;
+	border-top:2px solid #000;
+}
+.bottom div.box{
+	float:left;
+	width:33.333%;
+	text-align:left;
+}
+.bottom div.box a, .bottom div.box span{
+	float:left;
+	width:100%;
+	padding-bottom:5px;
+}
+.bottom div.box h3{
+	color:#FFB15E;
+}
+div.angularRepos .btn{
+	margin:0px 4px 4px 0px;
+}
+div.subPage h1{
+	border-bottom:1px solid #CCC;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+	.col-10p{
+		width:50%;
+	}
+	.col-xs-4{
+		width:100%;
+		float: left;
+	}
+	.container{
+		width: 100%;
+	}
+	.avatar{
+		float: left;
+		position: relative;
+		text-align: center;
+		max-height: 100%;
+		overflow:hidden;
+		width:100%;
+	}
+	.avatar img{
+		width:100%;
+	}
+}
+@media screen and (max-width: 480px) {
+	h1, h2, h3{
+		padding-top: 10px;
+	}
+	.col-xs-4{
+		width:100%;
+		float: left;
+	}
+	.container{
+		width:100%;
+		margin-left: 0px;
+		padding: 15px;
+	}
+	.page{
+		padding-top: 125px;
+	}
+	.col-10p{
+		width:50%;	
+	}
+	.avatar{
+		float: left;
+		position: relative;
+		text-align: center;
+		max-height: 100%;
+		overflow:hidden;
+		width:100%;
+	}
+	.avatar .name{
+		display:block!important;
+		background-color:#000;
+		opacity:0.6;
+	}
+	.avatar .name span{
+		color:#FFF;
+	}
+	.bottom div.box{
+		width:100%;
+		margin-bottom: 15px;
+	}
+	footer{
+		width:100%;
+		padding-bottom:10px;
+	}
+	.col-xs-6, .col-xs-5, .col-xs-7, .col-xs-8{
+		width:100%;
+	}
+}

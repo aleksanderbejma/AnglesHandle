@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="buttons col-xs-12">
+        <!-- Add Hide userDetail Button. -->
+        <button ng-click="setView(prevView)" class="btn btn-lg btn-danger">Back</button>
+    </div>
+    <div class="left col-xs-6">
+        <!-- Show User Avatar. -->
+        <img ng-show="userInfo.avatar_url" ng-src="{{userInfo.avatar_url}}" class="img-responsive" />
+    </div>
+    <div class="right col-xs-6">  
+        <!-- Show User Info. -->
+        <div class="left col-xs-6">               
+            <h2 ng-show="userInfo.name">{{userInfo.name}}</h2> 
+            <h2 ng-hide="userInfo.name">{{userInfo.login}}</h2>
+            <p ng-show="userInfo.created_at"><b>Created at:</b> {{userInfo.created_at}}</p>
+            <p ng-show="userInfo.updated_at"><b>Updated at:</b> {{userInfo.updated_at}}</p>
+            <p ng-show="userInfo.location"><b>Location:</b> {{userInfo.location}}</p>
+            <p ng-show="userInfo.company"><b>Company:</b> {{userInfo.company}}</p>
+            <p ng-show="userInfo.bio"><b>Biography:</b> {{userInfo.bio}}</p>
+            <p ng-show="userInfo.html_url"><a ng-href="{{userInfo.html_url}}" target="_blank">Go to the User GitHub Page</a></p>
+            <p ng-show="userInfo.blog"><a ng-href="{{userInfo.blog}}" target="_blank">Go to the User Blog</a></p>
+            <p ng-show="userInfo.email"><a ng-href="{{userInfo.email}}" target="_blank">Write an e-mail to the User</a></p>												
+        </div>
+        <div class="right col-xs-6"> 
+            <!-- Show User Added Info. --> 
+            <div class="legend">
+                <p><span class="aContributors" ng-show="userInfo.angularContributions">Angular Contributions: {{userInfo.angularContributions}}</span></p>
+                <p><span class="followers" ng-show="userInfo.followers">Followers: {{userInfo.followers}}</span></p>
+                <p><span class="pRepos" ng-show="userInfo.public_repos">Repos: {{userInfo.public_repos}}</span></p>
+                <p><span class="pGists" ng-show="userInfo.public_gists">Gists: {{userInfo.public_gists}}</span></p>
+            </div>
+        </div>
+            <!-- Start Show User Repositories. -->
+        <div class="col-xs-12"> 
+            <h4 ng-show="reposGeted">User Repositories:</h4>
+            <div class="buttons col-xs-12">
+                <button dir-paginate="repo in userRepos | itemsPerPage: 15" pagination-id="{{userInfo.login}}" type="button" class="btn btn-xs btn-info repoInfo" ng-click="showRepoInfo(repo.url);">{{repo.name}}</button>
+            </div>
+            <!-- Show Pagination for User Repositories. -->
+            <div ng-controller="PaginationController" class="col-xs-12">
+                <div>
+                    <dir-pagination-controls class="dir-paginate" pagination-id="" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/App/helperViews/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+            <!-- End Pagination for User Repositories. -->
+        </div>
+        <!-- End Show User Repositories. -->
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="buttons col-xs-12">
+    <button ng-click="setView(prevView)" class="btn btn-lg btn-danger">Back</button>
+</div>
+<div class="col-xs-5">
+    <!-- Show Repository Info. -->	
+    <h3>Repository: {{repoInfo.full_name}}</h3>
+    <p ng-show="repoInfo.created_at"><b>Created at:</b> {{repoInfo.created_at}}</p>
+    <p ng-show="repoInfo.updated_at"><b>Updated at:</b> {{userInfo.updated_at}}</p>
+    <p ng-show="repoInfo.pushed_at"><b>Pushed at:</b> {{repoInfo.pushed_at}}</p>
+    <p ng-show="repoInfo.git_url"><b>Git URL:</b> {{repoInfo.git_url}}</p>
+    <p ng-show="repoInfo.ssh_url"><b>SSH URL:</b> {{repoInfo.ssh_url}}</p>
+    <p ng-show="repoInfo.clone_url"><b>Clone URL:</b> {{repoInfo.clone_url}}</p>
+    <p><b>Description:</b> {{repoInfo.description}}</p>
+    <p ng-show="repoInfo.html_url"><a ng-href="{{repoInfo.html_url}}" target="_blank">Go to the Repo GitHub Page</a></p>
+</div>
+<div class="col-xs-7">
+    <!-- Show Repository Contributors. -->	
+    <h4>Repository Contributors:</h4>						
+    <div class="col-10p" dir-paginate="repoContributor in repoContributors | itemsPerPage: 30" pagination-id="repos">
+        <span class="avatar"  ng-mouseover="avatarHovered = true" ng-mouseleave="avatarHovered = false" ng-click="showUserInfo(repoContributor.login)">
+            <img class="img-responsive" ng-src="{{repoContributor.avatar_url}}" alt="avatar of {{repoContributor.login}}" />       			
+            <div class="name" ng-show="avatarHovered">
+                <span ng-show="repoContributor.name">{{repoContributor.name}}</span>
+                <span ng-hide="repoContributor.name">{{repoContributor.login}}</span>
+            </div>  
+        </span>
+    </div>
+    <!-- Start Pagination for Repository Contributors. -->
+    <div ng-controller="PaginationController" class="col-xs-12">
+        <div class="text-center">
+            <dir-pagination-controls class="dir-paginate" pagination-id="repos" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/App/helperViews/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+    <!-- End Pagination for Repository Contributors. -->
+</div>

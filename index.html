@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html ng-app="GitHubApp">
+
+<head>
+	<meta charset="UTF-8">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+	<title>Angles Handle - GitHub Angular Contributors on the One Page Website</title>
+    <meta name="description" content="Angles Handle is Angular project which contains Angular Organisation Contributors, with their repositories, user infos and so on. Enjoy!" />
+    
+	<meta property="og:url" content="http://www.github.abresolutions.com" />
+    <meta property="og:title" content="Angles Handle - GitHub Angular Contributorsa" />
+    <meta property="og:site_name" content="Angles Handle - GitHub Angular Contributors" />
+    <meta property="og:image" content="http://github.abresolutions.com/images/angles-handle-logo.jpg" />
+    <meta property="og:image:type" content="image/jpg" /> 
+    <meta property="og:image:width" content="200" /> 
+    <meta property="og:image:height" content="200" />				
+    <meta property="og:description" content="Angles Handle is Angular project which contains Angular Organisation Contributors, with their repositories, user infos and so on. Enjoy!" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+	<link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet" />
+	<script src="/js/angular.min.js"></script>
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+			
+	<script src="/App/helpers/additionalFunctions.js"></script>
+    
+	<script src="/App/GitHubApp.js"></script>
+    
+	<script src="/App/helpers/dirPagination.js"></script>
+    
+	<script src="/App/helpers/loading-bar.js" type="text/javascript"></script>
+	<link href="/css/loading-bar.css" type="text/css" media="all" rel="stylesheet" />
+    
+	<link href="/css/styles.css" rel="stylesheet" />		
+</head>
+
+<body role="document" ng-controller="GitHubDataController">
+	
+<header ng-include="templateParts.header">
+	
+</header>
+
+<section class="col-xs-12">	
+
+<div class="page">
+	
+    <header ng-include="templateParts.sectionHeader">
+    	
+    </header> 
+	
+    <div class="mainPage" ng-hide="subpageView">
+		<div class="container">
+        	<!-- Start Loader. Loader is visible when Angular Contributors are loading first Time.-->
+			<div id="loader" ng-hide="requestsDone">
+				<span class="label label-default">Angular Contributors are loading...</span>
+				<div class="loader" style="width:100%; margin-top: 25px;"></div>
+			</div> 
+            <!-- End Loader. -->
+    
+        	<div class="content" ng-show="requestsDone">       
+            	<!-- All Angular Contributors View -->
+				<div class="contributorsDiv" ng-show="activeView == 'angularContributors'" ng-include="templates.angularContributors">
+					                                              
+            	</div>
+				<!-- End All Angular Contributors View --> 
+            
+                <!-- Start User View -->    
+                <div class="showDetails" ng-show="activeView == 'showUsersDetails'" ng-include="templates.showUserDetails" id="top">
+                    
+                </div>
+                <!-- End User View. --> 	
+            
+                <!-- Start Repository View. -->					
+                <div ng-show="activeView == 'showRepoInfo'" ng-include="templates.showRepoInfo">
+                    
+                </div>
+                <!-- End Repository View. -->
+                
+                <!-- Angular Repositories View Start -->
+                <div class="angularRepos" ng-show="activeView == 'angularRepos'" ng-include="templates.angularRepos">
+                    
+                </div>
+                <!-- End Angular Repositories View. -->
+                
+                <!-- Start Angular Organization Info View. -->
+                <div class="angularInfo" ng-show="activeView == 'angularInfo'" ng-include="templates.angularInfo">
+                    
+                </div>
+                <!-- End Angular Organization Info View. -->
+			</div>
+		</div>
+	</div>
+    <!-- End Main View. -->
+     
+	<!-- SubPages View. -->  
+    <div class="subPage" ng-show="subpageView">
+    	<div class="container">  
+        	<!-- Start About View. -->   
+            <div class="aboutView" ng-show="activeView == 'About'" ng-include="pages.About">
+            	
+            </div>
+        	<!-- end About View. -->
+        	<!-- Start Contact View. -->
+            <div class="contactView" ng-show="activeView == 'Contact'" ng-include="pages.Contact">
+                
+            </div>
+        	<!-- end Contact View. -->
+		</div> 
+	</div>
+     
+	<!-- Start Bottom Links and Info. -->
+    <div class="bottom" ng-include="templateParts.pageBottom">
+    	
+  	</div>
+    <!-- End Bottom Links and Info. --> 
+       
+</div>      
+</section>
+
+<!-- Start Fixed Footer. -->
+<footer class="footer" ng-include="templateParts.footer">
+</footer>
+<!-- End Fixed Footer. -->
+  
+</body>
+
+</html>
