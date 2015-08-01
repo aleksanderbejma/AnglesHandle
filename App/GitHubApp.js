@@ -20,7 +20,7 @@ function GitHubDataController($scope, $http, $element){
 	$scope.pageSize = 50;
 		
 	<!-- GitHub Token to get more than 60 requests  -->
-	gitAccessToken = '464f46ec0c15b101035d1fd624a5773d0fea41ac';
+	gitAccessToken = '190e5d8bf648450ece5efee9021fe174f9d2c1b8';
 	
 	<!-- Array to store Unique Angular Repositories Contributors -->			
 	$scope.uniqueContributors = [];
@@ -57,7 +57,7 @@ function GitHubDataController($scope, $http, $element){
 	
 	init = function() {
 		<!-- Start with getting info about Angular Organization -->
-		$http.get("https://api.github.com/orgs/angular?client_secret="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get("https://api.github.com/orgs/angular?access_token="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			$scope.userData = data;
 			var repos_url = data.repos_url;
@@ -71,7 +71,7 @@ function GitHubDataController($scope, $http, $element){
 	
 	<!-- Function to get Repositories connected to Angular Organization -->	
 	var loadRepos = function (repos_url) {
-		$http.get(repos_url+'?per_page=100&client_secret='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get(repos_url+'?per_page=100&access_token='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			$scope.repoData = data;
 			angular.forEach($scope.repoData, function(item, index) {
@@ -84,7 +84,7 @@ function GitHubDataController($scope, $http, $element){
 	<!-- Function to get Angular connected Repositories Contributors -->	
 	var loadRepoContributors = function (cont_url) {
 		var i = 0;
-		$http.get(cont_url+'?per_page=100&client_secret='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get(cont_url+'?per_page=100&access_token='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data, response) {
 			$scope.allContributors = data;					
 			angular.forEach($scope.allContributors, function(item, i) {
@@ -103,7 +103,7 @@ function GitHubDataController($scope, $http, $element){
 	var loadUserInfo = function (cont_login) {
 		$scope.userNotFound = false;
 		$scope.loaded = false;
-		$http.get("https://api.github.com/users/"+cont_login+'?client_secret='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get("https://api.github.com/users/"+cont_login+'?access_token='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			user_login = data.login;
 			if(!containsObject(user_login, $scope.uniqueContributors) && data.login!=''){
@@ -115,11 +115,11 @@ function GitHubDataController($scope, $http, $element){
     
 	<!-- Function to get User Info -->
 	$scope.showUserInfo = function (login) {
-		$http.get("https://api.github.com/users/"+login+"/repos?per_page=100&client_secret="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get("https://api.github.com/users/"+login+"/repos?per_page=100&access_token="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			$scope.userRepos = data;
 			$scope.reposGeted = data.length > 0;
-			$http.get("https://api.github.com/users/"+login+"?client_secret="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+			$http.get("https://api.github.com/users/"+login+"?access_token="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 			.success(function (data) {
 				$scope.userInfo = data;	
 				$scope.userLogin = data.login;
@@ -134,12 +134,12 @@ function GitHubDataController($scope, $http, $element){
 	
 	<!-- Function to get Repository Info -->
 	$scope.showRepoInfo = function (url) {
-		$http.get(url+"?client_secret="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get(url+"?access_token="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			$scope.repoInfo = data;
 			//$scope.repoInfoGeted = data.length > 0;	
 			var contributors_url = data.contributors_url; 
-			$http.get(contributors_url+'?per_page=100&client_secret='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+			$http.get(contributors_url+'?per_page=100&access_token='+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 			.success(function (data) {  
 				$scope.repoContributors = data;
 				$scope.prevView = $scope.activeView;
@@ -151,7 +151,7 @@ function GitHubDataController($scope, $http, $element){
 	
 	<!-- Function to get Angular Repositories -->
 	$scope.showAngularRepositories = function () {
-		$http.get("https://api.github.com/orgs/angular/repos?per_page=100&client_secret="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get("https://api.github.com/orgs/angular/repos?per_page=100&access_token="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			$scope.angularRepos = data;
 			$scope.prevView = $scope.activeView;
@@ -162,7 +162,7 @@ function GitHubDataController($scope, $http, $element){
 	
 	<!-- Function to get Infos About Angular Organization -->
 	$scope.showAngularOrganizationInfo = function () {
-		$http.get("https://api.github.com/orgs/angular?client_secret="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
+		$http.get("https://api.github.com/orgs/angular?access_token="+gitAccessToken, {headers: {'Content-type': 'application/json'}})
 		.success(function (data) {
 			$scope.angularOrganizationInfo = data;
 			$scope.prevView = $scope.activeView;
