@@ -57,7 +57,6 @@ function GitHubDataController($scope, $http, $element){
 		$http.get("/App/helpers/gitAccessToken.php")
 		.success(function (data) {
 			$scope.gitAccessToken = data;
-			console.log($scope.gitAccessToken);
 		
 			<!-- Start with getting info about Angular Organization -->
 			$http.get("https://api.github.com/orgs/angular?access_token="+$scope.gitAccessToken, {headers: {'Content-type': 'application/json'}})
